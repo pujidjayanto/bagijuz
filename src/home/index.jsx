@@ -1,3 +1,6 @@
+import Hero from './hero'
+import FormSection from './form';
+
 export default function Home() {
   const checkboxes = [];
   for (let i = 1; i <= 30; i++) {
@@ -11,16 +14,8 @@ export default function Home() {
 
   return (
     <>
-      <h1>Membantu Pembagian Juz berkelompok</h1>
-      <h2>Pengaturan</h2>
-      <form action="">
-        <label> Tulis Nama Anggota (pisahkan dengan koma)</label>
-        <textarea />
-        {checkboxes}
-        <button type="submit"> Tampilkan </button>
-      </form>
-      <button> Pilih Semua </button>
-      <button> Hapus Semua </button>
+      <Hero/>
+      <FormSection/>
     </>
   )
 }
