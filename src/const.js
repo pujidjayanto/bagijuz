@@ -966,3 +966,5 @@ const juzConfigs = [
     ]
   }
 ];
+
+export default juzConfigs;

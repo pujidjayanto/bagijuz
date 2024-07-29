@@ -1,5 +1,6 @@
 // FormSection.jsx
 import React, { useState, useEffect } from 'react';
+import Divider from '../report/divider';
 
 const FormSection = () => {
   const juzNumbers = Array.from({ length: 30 }, (_, i) => i + 1);
@@ -21,7 +22,7 @@ const FormSection = () => {
   const handleSubmit = () => {
     console.log('Selected Juz:', selectedJuz);
     console.log('Text area value:', textareaValue);
-    // Do something with the selectedJuz array
+    Divider(selectedJuz, textareaValue);
   };
 
   const handleCheckboxChange = (event) => {
