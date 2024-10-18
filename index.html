@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+  <div id="app">
+    <section class="section">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <div class="buttons is-centered mb-4">
+              <button @click="setLanguage('id')" :class="{'is-primary': isActive('id'), 'is-light': !isActive('id')}" class="button">Bahasa Indonesia</button>
+              <button @click="setLanguage('en')" :class="{'is-primary': isActive('en'), 'is-light': !isActive('en')}" class="button">English</button>
+            </div>
+
+            <figure class="image is-64x64 is-inline-block mb-4">
+              <img src="./brand.png">
+            </figure>
+
+            <h1 class="title">{{ i18n.t('title') }}</h1>
+            <p class="subtitle">{{ i18n.t('description') }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="container has-text-centered">
+      <div class="block">
+        <h1>Pengaturan</h1>
+      </div>
+      <div class="block">
+        <h1> Tulis Nama Anggota (Pisahkan dengan Koma) </h1>
+      </div>
+      <form action="">
+        <div class="field">
+          <label class="label">Message</label>
+          <div class="control">
+            <textarea class="textarea" placeholder="Textarea"></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="./i18n.js"></script>
+  <script src="./index.js"></script>
+</body>
+</html>
