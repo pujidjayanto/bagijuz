@@ -3,7 +3,8 @@ const { createApp, ref } = Vue
 const app = createApp({
   data() {
     return {
-      i18n
+      i18n,
+      selectedCheckboxes: []
     }
   },
   methods: {
@@ -12,8 +13,12 @@ const app = createApp({
     },
     isActive(lang) {
       return this.i18n.locale === lang
-    }
-  }
+    },
+    submitForm(){
+      console.log(this.selectedCheckboxes);
+      alert('Selected checkboxes: ' + this.selectedCheckboxes.join(', '));
+    },
+  },
 })
 
 app.mount('#app')
