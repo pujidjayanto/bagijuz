@@ -25,8 +25,7 @@ const app = createApp({
       this.allSelected = !this.allSelected
     },
     submitSetting() {
-      console.log('Members:', this.memberList)
-      console.log('Selected numbers:', this.selectedJuzCheckboxes)
+      distributeSelectedJuzCheckboxes(this.memberList, this.selectedJuzCheckboxes)
     }
   },
   computed: {
