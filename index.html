@@ -1,66 +1,42 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-</head>
-<body>
-  <div id="app">
-    <section class="section">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <title>Bagijuz</title>
+  </head>
+  <body>
+    <div class="container" id="app">
       <div class="container">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <div class="buttons is-centered mb-4">
-              <button @click="setLanguage('id')" :class="{'is-primary': isActive('id'), 'is-light': !isActive('id')}" class="button">Bahasa Indonesia</button>
-              <button @click="setLanguage('en')" :class="{'is-primary': isActive('en'), 'is-light': !isActive('en')}" class="button">English</button>
-            </div>
-
-            <figure class="image is-64x64 is-inline-block mb-4">
-              <img src="./brand.png">
-            </figure>
-
-            <p class="title">{{ i18n.t('description') }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="container">
-      <div class="block">
-        <h1>Pengaturan</h1>
-      </div>
-      <div class="field">
-        <label class="label">Tulis Nama Anggota (Pisahkan dengan Koma)</label>
-        <div class="control">
-          <textarea class="textarea" placeholder="Textarea"></textarea>
-        </div>
-      </div>
-      <div class="field">
-        <div class="control">
-          <div class="columns is-multiline">
-            <div v-for="n in 30" class="column is-one-fifth">
-              <label class="checkbox">
-                <input type="checkbox" :value="n" v-model="selectedCheckboxes"/>
-                {{ n }}
-              </label>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <div class="navbar-item" href="https://bulma.io">
+              <img src="./brand.png" alt="Logo">
+              <span class="ml-2">BAGIJUZ</span>
             </div>
           </div>
-        </div>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-primary">
+                  <strong>Sign up</strong>
+                </a>
+                <a class="button is-light">
+                  Log in
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
       </div>
-      <div class="field is-grouped">
-        <div class="control">
-          <button class="button is-link" @click="submitForm">Submit</button>
-        </div>
-        <div class="control">
-          <button class="button is-link is-light">Cancel</button>
-        </div>
-      </div>
+      <section class="section">
+        <h1 class="title">BAGIJUZ</h1>
+        <h2 class="subtitle">
+          A simple tool for managing al-quran reading task distribution in a group
+        </h2>
+      </section>
     </div>
-  </div>
-  <script src="./i18n.js"></script>
-  <script src="./data.js"></script>
-  <script src="./index.js"></script>
-</body>
+  </body>
 </html>
