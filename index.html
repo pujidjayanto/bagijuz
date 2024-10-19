@@ -43,7 +43,7 @@
               <div class="field">
                 <label class="label">{{ i18n.t('memberTextAreaLabel') }}</label>
                 <div class="control">
-                  <textarea class="textarea is-primary"  rows="3" placeholder="eg: Ragil, Ilham, Akhdan"></textarea>
+                  <textarea class="textarea is-primary" rows="3" placeholder="eg: Ragil, Ilham, Akhdan" v-model="memberTextAreaValue"></textarea>
                 </div>
               </div>
               <div class="field">
@@ -51,7 +51,7 @@
                   <div class="columns is-multiline">
                     <div v-for="n in 30" class="column is-one-fifth">
                       <label class="checkbox">
-                        <input type="checkbox" :value="n" v-model="selectedCheckboxes"/>
+                        <input type="checkbox" :value="n" v-model="selectedJuzCheckboxes"/>
                         {{ n }}
                       </label>
                     </div>
@@ -60,7 +60,7 @@
               </div>
               <div class="field is-grouped">
                 <div class="control">
-                  <button class="button is-link">{{ i18n.t('submitText') }}</button>
+                  <button class="button is-link" @click="submitSetting">{{ i18n.t('submitText') }}</button>
                 </div>
                 <div class="control">
                   <button @click="toggleSelectAll" class="button is-link is-light">{{ selectAllText }}</button>
