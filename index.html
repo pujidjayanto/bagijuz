@@ -8,35 +8,65 @@
     <title>Bagijuz</title>
   </head>
   <body>
-    <div class="container" id="app">
-      <div class="container">
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-          <div class="navbar-brand">
-            <div class="navbar-item" href="https://bulma.io">
-              <img src="./brand.png" alt="Logo">
-              <span class="ml-2">BAGIJUZ</span>
+    <div class=".container.is-widescreen" id="app">
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <div class="navbar-item" href="https://bulma.io">
+            <img src="./brand.png" alt="Logo">
+            <span class="ml-2">BAGIJUZ</span>
+          </div>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary">
+                <strong>Sign up</strong>
+              </a>
+              <a class="button is-light">
+                Log in
+              </a>
             </div>
           </div>
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="button is-primary">
-                  <strong>Sign up</strong>
-                </a>
-                <a class="button is-light">
-                  Log in
-                </a>
+        </div>
+      </nav>
+
+      <section class="hero" style="background-color: aqua;">
+        <div class="hero-body">
+          <p class="title">Primary hero</p>
+          <p class="subtitle">Primary subtitle</p>
+        </div>
+      </section>
+
+      <div class="columns" style="margin-top: 20px;">
+        <div class="column is-5" style="background-color: aquamarine;">
+          <div class="container pl-2" id="setting">
+            <h1>Setting</h1>
+            <div class="field">
+              <label class="label">Message</label>
+              <div class="control">
+                <textarea class="textarea is-primary is-small"  rows="3" placeholder="Textarea"></textarea>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <label class="checkbox">
+                  <input type="checkbox">
+                  I agree to the <a href="#">terms and conditions</a>
+                </label>
+              </div>
+            </div>
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-link">Submit</button>
+              </div>
+              <div class="control">
+                <button class="button is-link is-light">Cancel</button>
               </div>
             </div>
           </div>
-        </nav>
+        </div>
+        <div class="column" style="background-color: aquamarine;">Second column</div>
       </div>
-      <section class="section">
-        <h1 class="title">BAGIJUZ</h1>
-        <h2 class="subtitle">
-          A simple tool for managing al-quran reading task distribution in a group
-        </h2>
-      </section>
     </div>
   </body>
 </html>
