@@ -37,7 +37,7 @@ const translations = {
     reportHeaderFromVerseText: 'Dari',
     reportHeaderToVerseText: 'Sampai',
     copyAssignmentText: 'Salin Pembagian',
-    noReportText: 'Tidak ada data distribusi yang tersedia. Buat pengaturan untuk membuat distribusi.'
+    noReportText: 'Tidak ada data yang tersedia. Buat pengaturan untuk membuat distribusi.'
 
   }
 }
