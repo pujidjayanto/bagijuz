@@ -7,6 +7,7 @@ const app = createApp({
       selectedJuzCheckboxes: [],
       allSelected: false,
       memberTextAreaValue: '',
+      distribution: [],
     }
   },
   methods: {
@@ -25,7 +26,7 @@ const app = createApp({
       this.allSelected = !this.allSelected
     },
     submitSetting() {
-      distributeSelectedJuzCheckboxes(this.memberList, this.selectedJuzCheckboxes)
+      this.distribution = distributeSelectedJuzCheckboxes(this.memberList, this.selectedJuzCheckboxes)
     }
   },
   computed: {
