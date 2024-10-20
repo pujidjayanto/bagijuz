@@ -47,8 +47,8 @@ const distributeJuz = (juzData, totalVerses, memberList) => {
       if (personShare >= availableVerses) {
         personAssignment.push({
           surahName: currentSurah.name,
-          from: versePointer,
-          to: currentSurah.lastVerse
+          fromVerse: versePointer,
+          toVerse: currentSurah.lastVerse
         });
 
         personShare -= availableVerses;
@@ -59,8 +59,8 @@ const distributeJuz = (juzData, totalVerses, memberList) => {
       } else {
         personAssignment.push({
           surahName: currentSurah.name,
-          from: versePointer,
-          to: versePointer + personShare - 1
+          fromVerse: versePointer,
+          toVerse: versePointer + personShare - 1
         });
         versePointer += personShare;
         personShare = 0;

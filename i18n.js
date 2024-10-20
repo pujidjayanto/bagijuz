@@ -7,7 +7,7 @@ const translations = {
     selectAllText: 'Select All',
     unselectAllText: 'Unselect All',
     submitText: 'Submit',
-    reportTitleText: 'Report',
+    reportTitleText: 'Distribution',
   },
   id: {
     settingTitle: 'Pengaturan',
