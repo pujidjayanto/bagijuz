@@ -4,39 +4,65 @@ const distributeSelectedJuzCheckboxes = (memberList, selectedJuzCheckboxes) => {
   for (let index = 0; index < selectedJuzCheckboxes.length; index++) {
     const juzData = MasterData[selectedJuzCheckboxes[index]-1];
 
-    const totalVerses = totalVersesByJuz(juzData);
+    let distribution = [];
+    if (juzData.juz === 30) {
+      distribution = distributeJuz30th(juzData, memberList);
+    } else {
+      distribution = distributeJuz(juzData, memberList);
+    }
 
-    const distribution = distributeJuz(juzData, totalVerses, memberList);
     distributionList.push({
       juz: juzData.juz,
       distribution: distribution,
     })
   }
 
-  return distributionList;
+  return  distributionList.sort((a, b) => a.juz - b.juz);
 }
 
-function totalVersesByJuz(juz) {
-  let totalVerses = 0;
+const distributeJuz30th = (juz30th, memberList) => {
+  const { surah } = juz30th;
+  const numberOfPeople = memberList.length;
+  const baseShare = Math.floor(surah.length / numberOfPeople);
+  const extraShare = surah.length % numberOfPeople;
 
-  for (let surah of juz.surah) {
-    let versesInSurah = surah.lastVerse - surah.firstVerse + 1;
-    totalVerses += versesInSurah;
+  const distribution = [];
+  let lsi = 0;
+  for (let i = 0; i < numberOfPeople; i++) {
+    const personShare = baseShare + (i < extraShare ? 1 : 0);
+
+    let si = 0;
+    let personAssignment = [];
+    while (si < personShare) {
+      let currentSurah = surah[lsi];
+      personAssignment.push({
+        surahName: currentSurah.name,
+        fromVerse: currentSurah.firstVerse,
+        toVerse: currentSurah.lastVerse
+      });
+
+      si++;
+      lsi++;
+    }
+
+    distribution.push({
+      person: memberList[i],
+      assignment: personAssignment,
+    });
   }
 
-  return totalVerses;
+  return distribution;
 }
 
-const distributeJuz = (juzData, totalVerses, memberList) => {
-  const distribution = [];
-
+const distributeJuz = (juzData, memberList) => {
+  const totalVerses = totalVersesByJuz(juzData);
   const numberOfPeople = memberList.length;
   const baseShare = Math.floor(totalVerses / numberOfPeople);
   const extraShare = totalVerses % numberOfPeople;
 
+  const distribution = [];
   let surahIndex = 0;
   let versePointer = juzData.surah[surahIndex].firstVerse;
-
   for (let i = 0; i < numberOfPeople; i++) {
     let personAssignment = [];
 
@@ -74,4 +100,15 @@ const distributeJuz = (juzData, totalVerses, memberList) => {
   }
 
   return distribution;
+}
+
+function totalVersesByJuz(juz) {
+  let totalVerses = 0;
+
+  for (let surah of juz.surah) {
+    let versesInSurah = surah.lastVerse - surah.firstVerse + 1;
+    totalVerses += versesInSurah;
+  }
+
+  return totalVerses;
 }
