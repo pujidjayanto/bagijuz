@@ -18,3 +18,7 @@
   height: 64px;
   margin-bottom: 1rem;
 }
+
+.footer {
+  --bulma-footer-padding: 1rem 1.5rem 1rem;
+}
