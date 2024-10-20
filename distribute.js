@@ -13,7 +13,7 @@ const distributeSelectedJuzCheckboxes = (memberList, selectedJuzCheckboxes) => {
     })
   }
 
-  // alert(JSON.stringify(distributionList, null, 2));
+  alert(JSON.stringify(distributionList, null, 2));
   return distributionList;
 }
 
@@ -35,38 +35,44 @@ const distributeJuz = (juzData, totalVerses, memberList) => {
   const baseShare = Math.floor(totalVerses / numberOfPeople);
   const extraShare = totalVerses % numberOfPeople;
 
-  let currentVerse = 1;
+  let surahIndex = 0;
+  let versePointer = juzData.surah[surahIndex].firstVerse;
 
   for (let i = 0; i < numberOfPeople; i++) {
-    const share = baseShare + (i < extraShare ? 1 : 0);
-    const startInfo = distributeSurahAndVerse(juzData, currentVerse);
-    const endInfo = distributeSurahAndVerse(juzData, currentVerse + share - 1);
+    let personAssignment = [];
+
+    let personShare = baseShare + (i < extraShare ? 1 : 0);
+    while (personShare > 0 && surahIndex < juzData.surah.length) {
+      let currentSurah = juzData.surah[surahIndex];
+      let availableVerses = currentSurah.lastVerse - versePointer + 1;
+      if (personShare >= availableVerses) {
+        personAssignment.push({
+          surahName: currentSurah.name,
+          from: versePointer,
+          to: currentSurah.lastVerse
+        });
+
+        personShare -= availableVerses;
+        surahIndex++;
+        if (surahIndex < juzData.surah.length) {
+          versePointer = juzData.surah[surahIndex].firstVerse;
+        }
+      } else {
+        personAssignment.push({
+          surahName: currentSurah.name,
+          fromVerse: versePointer,
+          toVerse: versePointer + personShare - 1
+        });
+        versePointer += personShare;
+        personShare = 0;
+      }
+    }
 
     distribution.push({
       person: memberList[i],
-      start: startInfo,
-      end: endInfo,
-      total: share,
-    });
-
-    currentVerse += share;
+      assignment: personAssignment,
+    })
   }
 
   return distribution;
 }
-
-const distributeSurahAndVerse = (juz, verseNumber) => {
-  let accumulatedVerses = 0;
-
-  for (const surah of juz.surah) {
-    const surahVerses = surah.lastVerse - surah.firstVerse + 1;
-    if (accumulatedVerses + surahVerses >= verseNumber) {
-      return {
-        surahName: surah.name,
-        verse: surah.firstVerse + verseNumber - accumulatedVerses - 1
-      };
-    }
-    accumulatedVerses += surahVerses;
-  }
-}
-

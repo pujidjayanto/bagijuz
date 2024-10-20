@@ -78,10 +78,10 @@
                 <div v-for="juzDistribution in distribution" :key="juzDistribution.juz" class="mb-4">
                   <h2 class="subtitle is-5">Juz {{ juzDistribution.juz }}</h2>
                   <div v-for="person in juzDistribution.distribution" :key="person.person" class="mb-2">
-                    <strong>Person {{ person.person }}:</strong>
+                    <!-- <strong>Person {{ person.person }}:</strong>
                     <p>Start: {{ person.start.surahName }} verse {{ person.start.verse }}</p>
                     <p>End: {{ person.end.surahName }} verse {{ person.end.verse }}</p>
-                    <p>Total Verses: {{ person.total }}</p>
+                    <p>Total Verses: {{ person.total }}</p> -->
                   </div>
                 </div>
               </div>
