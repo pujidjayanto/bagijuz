@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="index.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
     <title>Bagijuz</title>
   </head>
@@ -71,8 +72,20 @@
         </div>
         <div class="column">
           <div class="container" id="report" style="padding-right: 2%;">
-            <div class="box">
-              <h1>Report</h1>
+            <div class="box scrollable-container">
+              <h1 class="title is-4">Report</h1>
+              <div v-if="distribution.length > 0">
+                <div v-for="juzDistribution in distribution" :key="juzDistribution.juz" class="mb-4">
+                  <h2 class="subtitle is-5">Juz {{ juzDistribution.juz }}</h2>
+                  <div v-for="person in juzDistribution.distribution" :key="person.person" class="mb-2">
+                    <strong>Person {{ person.person }}:</strong>
+                    <p>Start: {{ person.start.surahName }} verse {{ person.start.verse }}</p>
+                    <p>End: {{ person.end.surahName }} verse {{ person.end.verse }}</p>
+                    <p>Total Verses: {{ person.total }}</p>
+                  </div>
+                </div>
+              </div>
+              <p v-else>No distribution data available. Please submit the settings to generate a report.</p>
             </div>
           </div>
         </div>

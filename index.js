@@ -26,7 +26,12 @@ const app = createApp({
       this.allSelected = !this.allSelected
     },
     submitSetting() {
-      this.distribution = distributeSelectedJuzCheckboxes(this.memberList, this.selectedJuzCheckboxes)
+      const memberList = this.memberList;
+      if (memberList.length === 0 || this.selectedJuzCheckboxes.length === 0) {
+        alert('Please enter members and select at least one juz.');
+        return;
+      }
+      this.distribution = distributeSelectedJuzCheckboxes(memberList, this.selectedJuzCheckboxes);
     }
   },
   computed: {

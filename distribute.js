@@ -1,5 +1,4 @@
 const distributeSelectedJuzCheckboxes = (memberList, selectedJuzCheckboxes) => {
-  const numberOfPeople = memberList.length;
   const distributionList = [];
 
   for (let index = 0; index < selectedJuzCheckboxes.length; index++) {
@@ -7,14 +6,14 @@ const distributeSelectedJuzCheckboxes = (memberList, selectedJuzCheckboxes) => {
 
     const totalVerses = totalVersesByJuz(juzData);
 
-    const distribution = distributeJuz(juzData, totalVerses, numberOfPeople);
+    const distribution = distributeJuz(juzData, totalVerses, memberList);
     distributionList.push({
       juz: juzData.juz,
       distribution: distribution,
     })
   }
 
-  alert(JSON.stringify(distributionList, null, 2));
+  // alert(JSON.stringify(distributionList, null, 2));
   return distributionList;
 }
 
@@ -29,9 +28,10 @@ function totalVersesByJuz(juz) {
   return totalVerses;
 }
 
-const distributeJuz = (juzData, totalVerses, numberOfPeople) => {
+const distributeJuz = (juzData, totalVerses, memberList) => {
   const distribution = [];
 
+  const numberOfPeople = memberList.length;
   const baseShare = Math.floor(totalVerses / numberOfPeople);
   const extraShare = totalVerses % numberOfPeople;
 
@@ -43,7 +43,7 @@ const distributeJuz = (juzData, totalVerses, numberOfPeople) => {
     const endInfo = distributeSurahAndVerse(juzData, currentVerse + share - 1);
 
     distribution.push({
-      person: i + 1,
+      person: memberList[i],
       start: startInfo,
       end: endInfo,
       total: share,
