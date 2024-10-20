@@ -73,15 +73,33 @@
         <div class="column">
           <div class="container" id="report" style="padding-right: 2%;">
             <div class="box scrollable-container">
-              <h1 class="title is-4">Report</h1>
+              <div class="block">
+                <h1>{{ i18n.t('reportTitleText') }}</h1>
+              </div>
+
               <div v-if="distribution.length > 0">
-                <div v-for="juzDistribution in distribution" :key="juzDistribution.juz" class="mb-4">
-                  <h2 class="subtitle is-5">Juz {{ juzDistribution.juz }}</h2>
-                  <div v-for="person in juzDistribution.distribution" :key="person.person" class="mb-2">
-                    <!-- <strong>Person {{ person.person }}:</strong>
-                    <p>Start: {{ person.start.surahName }} verse {{ person.start.verse }}</p>
-                    <p>End: {{ person.end.surahName }} verse {{ person.end.verse }}</p>
-                    <p>Total Verses: {{ person.total }}</p> -->
+                <div v-for="juzDistribution in distribution" :key="juzDistribution.juz" class="container mb-6">
+                  <h2 class="title is-5">Juz {{ juzDistribution.juz }}</h2>
+                  <div class="columns is-multiline is-mobile">
+                    <div v-for="(personDistribution, index) in juzDistribution.distribution" :key="personDistribution.person" class="column is-6">
+                      <div class="card">
+                        <header class="card-header">
+                          <p class="card-header-title is-size-6">
+                            {{ index + 1 }}. {{ personDistribution.person }}
+                          </p>
+                        </header>
+                        <div class="card-content">
+                          <div class="content">
+                            <div v-for="assignment in personDistribution.assignment" :key="assignment.surahName + assignment.fromVerse + assignment.toVerse" class="field">
+                              <label class="checkbox">
+                                <input type="checkbox" :value="assignment" v-model="checkedAssignments">
+                                {{ assignment.surahName }} from verse {{ assignment.from }} to {{ assignment.to }}
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

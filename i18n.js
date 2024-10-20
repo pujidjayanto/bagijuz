@@ -7,6 +7,7 @@ const translations = {
     selectAllText: 'Select All',
     unselectAllText: 'Unselect All',
     submitText: 'Submit',
+    reportTitleText: 'Report',
   },
   id: {
     settingTitle: 'Pengaturan',
@@ -14,6 +15,7 @@ const translations = {
     selectAllText: 'Pilih Semua',
     unselectAllText: 'Batal Pilih Semua',
     submitText: 'Kirim',
+    reportTitleText: 'Pembagian',
   }
 }
 

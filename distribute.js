@@ -13,7 +13,6 @@ const distributeSelectedJuzCheckboxes = (memberList, selectedJuzCheckboxes) => {
     })
   }
 
-  alert(JSON.stringify(distributionList, null, 2));
   return distributionList;
 }
 
@@ -60,8 +59,8 @@ const distributeJuz = (juzData, totalVerses, memberList) => {
       } else {
         personAssignment.push({
           surahName: currentSurah.name,
-          fromVerse: versePointer,
-          toVerse: versePointer + personShare - 1
+          from: versePointer,
+          to: versePointer + personShare - 1
         });
         versePointer += personShare;
         personShare = 0;
