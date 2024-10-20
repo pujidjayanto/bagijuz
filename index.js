@@ -28,10 +28,27 @@ const app = createApp({
     submitSetting() {
       const memberList = this.memberList;
       if (memberList.length === 0 || this.selectedJuzCheckboxes.length === 0) {
-        alert('Please enter members and select at least one juz.');
+        alert(this.i18n.t('alertInvalidSettingText'));
         return;
       }
       this.distribution = distributeSelectedJuzCheckboxes(memberList, this.selectedJuzCheckboxes);
+    },
+    copyAssignments(juzDistribution) {
+      let assignmentsText = `Juz ${juzDistribution.juz}\n`;
+
+      juzDistribution.distribution.forEach((personDistribution, index) => {
+        assignmentsText += `${index + 1}. ${personDistribution.person}\n`;
+        personDistribution.assignment.forEach(assignment => {
+          assignmentsText += `\t- ${this.i18n.t('readSurahText')} ${assignment.surahName} ${this.i18n.t('fromVerseText')} ${assignment.fromVerse} ${this.i18n.t('toVerseText')} ${assignment.toVerse}\n`;
+        });
+      });
+
+      navigator.clipboard.writeText(assignmentsText).then(() => {
+        alert(this.i18n.t('copySuccessMessage'));
+      }).catch(err => {
+        console.error('Failed to copy: ', err);
+        alert(this.i18n.t('copyErrorMessage'));
+      });
     }
   },
   computed: {
@@ -45,4 +62,3 @@ const app = createApp({
 })
 
 app.mount('#app')
-

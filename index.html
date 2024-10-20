@@ -84,10 +84,10 @@
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>Name</th>
-                        <th>Surah</th>
-                        <th>From Verse</th>
-                        <th>To Verse</th>
+                        <th>{{ i18n.t('reportHeaderNameText') }}</th>
+                        <th>{{ i18n.t('reportHeaderSurahText') }}</th>
+                        <th>{{ i18n.t('reportHeaderFromVerseText') }}</th>
+                        <th>{{ i18n.t('reportHeaderToVerseText') }}</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -103,10 +103,10 @@
                       </template>
                     </tbody>
                   </table>
+                  <button class="button is-link is-small" @click="copyAssignments(juzDistribution)">{{ i18n.t('copyAssignmentText') }}</button>
                 </div>
               </div>
-              <p v-else>No distribution data available. Please submit the settings to generate a report.</p>
-
+              <p v-else>{{ i18n.t('noReportText') }}</p>
             </div>
           </div>
         </div>
