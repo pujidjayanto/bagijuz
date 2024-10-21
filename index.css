@@ -1,13 +1,22 @@
-@media screen and (max-width: 1023px) {
-  .navbar-menu {
-    display: flex !important;
-    padding: 0;
-  }
-  .navbar-end {
-    margin-left: auto;
-  }
-  .navbar-item {
-    padding: 0.5rem;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+.navbar-brand, .navbar-end {
+  display: flex;
+  align-items: center;
+}
+.navbar-item {
+  padding: 0.5rem;
+}
+.navbar-end .buttons {
+  margin-bottom: 0;
+}
+@media screen and (max-width: 768px) {
+  .button.is-small {
+    font-size: 0.65rem;
   }
 }
 
