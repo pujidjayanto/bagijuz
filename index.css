@@ -1,3 +1,16 @@
+@media screen and (max-width: 1023px) {
+  .navbar-menu {
+    display: flex !important;
+    padding: 0;
+  }
+  .navbar-end {
+    margin-left: auto;
+  }
+  .navbar-item {
+    padding: 0.5rem;
+  }
+}
+
 .scrollable-container {
   max-height: calc(100vh - 200px);
   overflow-y: auto;
