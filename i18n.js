@@ -18,7 +18,8 @@ const translations = {
     reportHeaderFromVerseText: 'From',
     reportHeaderToVerseText: 'To',
     copyAssignmentText: 'Copy Assignments',
-    noReportText: 'No distribution data available. Please submit the settings to generate a report.'
+    noReportText: 'No distribution data available. Please submit the settings to generate a report.',
+    subTitleText: 'Simplify your Quran recitation journey with Bagijuz. Easily calculate and distribute verses among your group, ensuring you can complete reading Quran together.'
   },
   id: {
     settingTitle: 'Pengaturan',
@@ -37,8 +38,8 @@ const translations = {
     reportHeaderFromVerseText: 'Dari',
     reportHeaderToVerseText: 'Sampai',
     copyAssignmentText: 'Salin Pembagian',
-    noReportText: 'Tidak ada data yang tersedia. Buat pengaturan untuk membuat distribusi.'
-
+    noReportText: 'Tidak ada data yang tersedia. Buat pengaturan untuk membuat distribusi.',
+    subTitleText: `Sederhanakan perjalanan tilawah Al-Qur'an Anda dengan Bagijuz. Hitung dan distribusikan ayat-ayat dengan mudah di antara anggota kelompok Anda, memastikan Anda dapat menyelesaikan Al-Qur'an bersama-sama`,
   }
 }
 

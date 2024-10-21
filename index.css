@@ -22,3 +22,11 @@
 .footer {
   --bulma-footer-padding: 1rem 1.5rem 1rem;
 }
+
+.title {
+  color: white;
+}
+
+.subtitle {
+  color: white;
+}
