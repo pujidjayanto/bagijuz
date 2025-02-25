@@ -6,7 +6,13 @@
     <meta name="description" content="Simplify your Quran recitation journey with Bagijuz. Easily calculate and distribute verses among your group, ensuring you can complete the Quran together.">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <link rel="stylesheet" href="index.css">
-    <script src="./vue.global.min.js"></script>
+
+    <link rel="preload" href="./vue.global.min.js" as="script">
+    <link rel="preload" href="./i18n.js" as="script">
+    <link rel="preload" href="./data.js" as="script">
+    <link rel="preload" href="./distribute.js" as="script">
+    <link rel="preload" href="./index.js" as="script">
+
     <title>Bagijuz</title>
   </head>
   <body>
@@ -128,6 +134,8 @@
         </p>
       </div>
     </footer>
+
+    <script src="./vue.global.min.js"></script>
     <script src="./i18n.js"></script>
     <script src="./data.js"></script>
     <script src="./distribute.js"></script>
