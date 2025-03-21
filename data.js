@@ -440,7 +440,7 @@ const MasterData = [
         "id": 37,
         "name":"As-Saffat",
         "firstVerse": 1,
-        "lastVerse": 82
+        "lastVerse": 182
       },
       {
         "id": 38,
